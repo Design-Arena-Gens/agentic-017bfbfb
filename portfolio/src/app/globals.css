@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  --background: #030014;
+  --foreground: #f8fafc;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.2), transparent 55%),
+    radial-gradient(circle at 80% 0%, rgba(168, 85, 247, 0.18), transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(251, 113, 133, 0.2), transparent 45%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans);
+}
+
+.glass-panel {
+  background: linear-gradient(140deg, rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.35));
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(22px);
+}
+
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.035) 1px, transparent 0);
+  background-size: 12px 12px;
+  opacity: 0.6;
+  mix-blend-mode: soft-light;
+}
